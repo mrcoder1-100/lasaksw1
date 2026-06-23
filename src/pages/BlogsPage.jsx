@@ -6,13 +6,108 @@ import SEO from '../components/SEO';
 import { db } from '../firebase';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 
+// Fallback image imports for offline compatibility
+import eotCraneImg from '../assets/eot-crane.png';
+import architecturalDesignImg from '../assets/architectural-design.png';
+import toyModelingImg from '../assets/toy-modeling.png';
+import electricVehiclesImg from '../assets/electric-vehicles.png';
+import sensorValveImg from '../assets/sensor-valve.png';
+import crabRobotImg from '../assets/crab-robot.png';
+import poultryVaccinatorImg from '../assets/poultry-vaccinator.png';
+import helmetDesignImg from '../assets/helmet-design.png';
+import boilerDesignImg from '../assets/boiler-design.png';
+import teslaValveImg from '../assets/tesla-valve.png';
+import jacquardMachineImg from '../assets/jacquard-machine.png';
+import eccentricGearImg from '../assets/eccentric-gear.png';
+import ecommerceDevelopmentImg from '../assets/ecommerce-development.png';
+import ecommerceDevelopmentImg2 from '../assets/ecommerce-development-2.png';
+import solarDryerImg from '../assets/solar-dryer.png';
+import waterBottleImg from '../assets/water-bottle.png';
+import realEstateImg from '../assets/real-estate.png';
+import financeAdvisoryImg from '../assets/finance-advisory.png';
+import wheelchairDesignImg from '../assets/wheelchair-design.png';
+
+// 14 New Mechanical Blog Images
+import cngPlantImg from '../assets/cng-plant.jpg';
+import dewPointSensorImg from '../assets/dew-point-sensor.png';
+import vibrationSensorImg from '../assets/vibration-sensor.jpg';
+import pressureSensorImg from '../assets/pressure-sensor.jpg';
+import humiditySensorImg from '../assets/humidity-sensor.jpg';
+import dynamicReducerImg from '../assets/dynamic-reducer.jpg';
+import dynamicFlowMeterImg from '../assets/dynamic-flow-meter.jpg';
+import jcbToyModellingImg from '../assets/jcb-toy-modelling.jpg';
+import metalFrameCageImg from '../assets/metal-frame-cage.png';
+import sensorLockImg from '../assets/sensor-lock.png';
+import miniatureModelImg from '../assets/miniature-model.jpg';
+import bioFilmAnalyzerImg from '../assets/bio-film-analyzer.webp';
+import methanogenCultureJarImg from '../assets/methanogen-culture-jar.webp';
+import solarPanelUmbrellaImg from '../assets/solar-panel-umbrella.jpg';
+
 // Wrapper for linkable cards
 const Wrapper = ({ link, children }) => link ? <Link to={link}>{children}</Link> : <>{children}</>;
 
+const FALLBACK_BLOGS = [
+    { title: "Future of Cybersecurity", slug: "future-of-cybersecurity", image_url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600", category: "Cybersecurity", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "EOT Crane, Weight Lifter & Handler Project", slug: "eot-crane-project", image_url: eotCraneImg, category: "Industrial Engineering", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Architectural & Interior Design Projects at Lasak Technologies", slug: "architectural-design", image_url: architecturalDesignImg, category: "Architecture & Interior", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Toy Modeling Design Services – Creative & Realistic Prototypes", slug: "toy-modeling", image_url: toyModelingImg, category: "Product Design", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Electric Vehicles (EVs) – Sustainable, Smart & Future-Ready Mobility", slug: "electric-vehicles", image_url: electricVehiclesImg, category: "Sustainable Mobility", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Sensor Valve Reverse Engineering Design Services", slug: "sensor-valve-design", image_url: sensorValveImg, category: "Reverse Engineering", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Crab Robot Patent Design – Coconut Harvesting Innovation & Remote Control Technology", slug: "crab-robot-design", image_url: crabRobotImg, category: "Robotics", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Automated Poultry Vaccinator Design", slug: "poultry-vaccinator", image_url: poultryVaccinatorImg, category: "AgriTech", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Innovative Helmet Design Patent", slug: "helmet-design", image_url: helmetDesignImg, category: "Safety Innovation", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Precision Engineering & Boiler Design Innovations", slug: "boiler-design", image_url: boilerDesignImg, category: "Industrial", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Tesla Valve Fluid Optimization", slug: "tesla-valve", image_url: teslaValveImg, category: "Fluid Dynamics", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Role in Designing a Jacquard Machine", slug: "jacquard-machine", image_url: jacquardMachineImg, category: "Textile Machinery", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Role in Designing an Eccentric Gear Mechanism", slug: "eccentric-gear", image_url: eccentricGearImg, category: "Mechanical", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Building the Future of Online Shopping: E-Commerce Website", slug: "ecommerce-development", image_url: ecommerceDevelopmentImg, category: "E-Commerce", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Solar Dryer Agriculture Innovation", slug: "solar-dryer", image_url: solarDryerImg, category: "Sustainability", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Water Bottle Design: A Blend of Innovation and Precision", slug: "water-bottle-design", image_url: waterBottleImg, category: "Product Design", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Real Estate Website", slug: "real-estate", image_url: realEstateImg, category: "Web Development", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Designing a Specialised Wheelchair(Patent Registration)", slug: "wheelchair-design", image_url: wheelchairDesignImg, category: "Patent Design", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Delivering Excellence in Finance and Business Advisory Website Development", slug: "finance-advisory", image_url: financeAdvisoryImg, category: "Web Development", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Building the Future of Online Shopping: Our E-Commerce Development Story", slug: "closense-ecommerce", image_url: ecommerceDevelopmentImg2, category: "E-Commerce", created_at: "2025-09-22T00:00:00.000Z" },
+
+    // 14 New Mechanical Blogs
+    { title: "CNG Plant Design and Development", slug: "cng-plant-design", image_url: cngPlantImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Dew Point Sensor", slug: "dew-point-sensor", image_url: dewPointSensorImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Vibration Sensor", slug: "vibration-sensor", image_url: vibrationSensorImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Pressure Sensor", slug: "pressure-sensor", image_url: pressureSensorImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Humidity Sensor", slug: "humidity-sensor", image_url: humiditySensorImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Dynamic Reducer", slug: "dynamic-reducer", image_url: dynamicReducerImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Dynamic Flow Meter", slug: "dynamic-flow-meter", image_url: dynamicFlowMeterImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "JCB Toy Modelling", slug: "jcb-toy-modelling", image_url: jcbToyModellingImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Metal Frame Cage", slug: "metal-frame-cage", image_url: metalFrameCageImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Sensor Lock", slug: "sensor-lock", image_url: sensorLockImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Miniature Model", slug: "miniature-model", image_url: miniatureModelImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Multi Chamber Bio Film Analyzer", slug: "bio-film-analyzer", image_url: bioFilmAnalyzerImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Methanogen Culture Jar", slug: "methanogen-culture-jar", image_url: methanogenCultureJarImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
+    { title: "Solar Panel Umbrella Type", slug: "solar-panel-umbrella", image_url: solarPanelUmbrellaImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" }
+];
+
 const BLOG_SUBCATEGORIES = {
-    'reverse-engineering': ['sensor-valve-design'],
-    'retro-fitting': ['eot-crane-project', 'eccentric-gear'],
-    'patent-drawing': ['crab-robot-design', 'wheelchair-design', 'helmet-design'],
+    'reverse-engineering': [
+        'sensor-valve-design',
+        'dew-point-sensor',
+        'vibration-sensor',
+        'pressure-sensor',
+        'humidity-sensor',
+        'dynamic-reducer',
+        'dynamic-flow-meter',
+        'jcb-toy-modelling'
+    ],
+    'retro-fitting': [
+        'eot-crane-project',
+        'eccentric-gear'
+    ],
+    'patent-drawing': [
+        'crab-robot-design',
+        'wheelchair-design',
+        'helmet-design',
+        'bio-film-analyzer',
+        'methanogen-culture-jar',
+        'solar-panel-umbrella'
+    ],
     'new-product-development': [
         'electric-vehicles',
         'jacquard-machine',
@@ -21,7 +116,13 @@ const BLOG_SUBCATEGORIES = {
         'tesla-valve',
         'boiler-design',
         'water-bottle-design',
-        'toy-modeling'
+        'toy-modeling',
+        'cng-plant-design',
+        'metal-frame-cage',
+        'sensor-lock'
+    ],
+    '3d-modeling': [
+        'miniature-model'
     ]
 };
 
@@ -29,7 +130,8 @@ const SUBCATEGORY_NAMES = {
     'reverse-engineering': 'REVERSE ENGINEERING',
     'retro-fitting': 'RETRO FITTING',
     'patent-drawing': 'PATENT DRAWING',
-    'new-product-development': 'NEW PRODUCT DEVELOPMENT'
+    'new-product-development': 'NEW PRODUCT DEVELOPMENT',
+    '3d-modeling': '3D MODELING'
 };
 
 const BlogsPage = () => {
@@ -47,11 +149,14 @@ const BlogsPage = () => {
                 const snap = await getDocs(q);
                 let data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
 
+                // Combine Firestore data with local fallback list
+                const combinedData = [...data, ...FALLBACK_BLOGS];
+
                 // Filter out "Welcome to Lasak" card and remove exact duplicates
                 const uniqueBlogs = [];
                 const seenSlugs = new Set();
 
-                data.forEach(blog => {
+                combinedData.forEach(blog => {
                     const title = (blog.title || "").toLowerCase();
                     const slug = blog.slug || blog.title || blog.id;
 
@@ -62,9 +167,23 @@ const BlogsPage = () => {
                     uniqueBlogs.push(blog);
                 });
 
+                // Sort all unique blogs by created_at descending
+                uniqueBlogs.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
                 setBlogs(uniqueBlogs);
             } catch (error) {
-                console.error('Error fetching blogs:', error);
+                console.error('Error fetching blogs, using local fallback:', error);
+                const uniqueBlogs = [];
+                const seenSlugs = new Set();
+                FALLBACK_BLOGS.forEach(blog => {
+                    const title = (blog.title || "").toLowerCase();
+                    const slug = blog.slug || blog.title || blog.id;
+                    if (seenSlugs.has(slug)) return;
+                    seenSlugs.add(slug);
+                    uniqueBlogs.push(blog);
+                });
+                uniqueBlogs.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                setBlogs(uniqueBlogs);
             } finally {
                 setLoading(false);
             }

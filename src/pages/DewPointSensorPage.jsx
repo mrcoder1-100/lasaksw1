@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Settings, RefreshCw, Scan, Cpu, ShieldAlert, Layers, User, Calendar, Tag, ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
+import { Cpu, ShieldCheck, Thermometer, Gauge, User, Calendar, Tag, ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Clients from '../components/Clients';
-import sensorValveImg from '../assets/sensor-valve.png';
+import dewPointSensorImg from '../assets/dew-point-sensor.png';
 
-const SensorValvePage = () => {
+const DewPointSensorPage = () => {
     const [activeFaq, setActiveFaq] = useState(null);
 
     const toggleFaq = (index) => {
@@ -29,70 +29,70 @@ const SensorValvePage = () => {
     };
 
     const highlights = [
-        '3D Optical Metrology Scan Digitizing',
-        'Computational Fluid Dynamics (CFD) Profiling',
-        'Finite Element Analysis (FEA) Stress Mapping',
-        'Material Grade Spectrometry Upgrades',
-        'Design for Manufacturing (DFM) CNC Tooling',
-        'Pressure Drop & Cavitation Prevention'
+        'Capacitive Polymer Sensor Electrodes',
+        'Chilled Mirror Condensation Principles',
+        'Trace Moisture Analysis in High-Pressure Gases',
+        'ISO 8573-1 Compressed Air Quality Standards',
+        'Temperature Compensation Algorithm Calibration',
+        'Intrinsically Safe Ex d & Ex ia Hazardous Design'
     ];
 
     const features = [
         {
-            title: "3D Scan Digitizing",
-            icon: <Scan />,
-            desc: "High-resolution optical scanners capture complex internal and external valve housing surfaces down to 10-micron tolerances.",
+            title: "Planar Capacitive Element",
+            icon: <Cpu />,
+            desc: "Highly sensitive thin-film metal oxide layer that changes capacitance dynamically based on water vapor absorption.",
             color: "text-indigo-400",
             bgColor: "bg-indigo-500/10"
         },
         {
-            title: "Fluid Flow Modeling",
-            icon: <Cpu />,
-            desc: "Integrated CFD analysis maps velocity vectors, pressure variations, and turbulent kinetic energy inside flow cavities.",
-            color: "text-violet-400",
-            bgColor: "bg-violet-500/10"
+            title: "Integrated Temperature Probe",
+            icon: <Thermometer />,
+            desc: "On-chip high-accuracy PT100/PT1000 RTD sensor to calculate dew point variations relative to ambient temperatures.",
+            color: "text-emerald-400",
+            bgColor: "bg-emerald-500/10"
         },
         {
-            title: "Material Spectrometry",
-            icon: <Layers />,
-            desc: "Optical Emission Spectrometry (OES) identifies the exact material chemistry, allowing upgrades to corrosion-resistant alloys.",
-            color: "text-sky-400",
-            bgColor: "bg-sky-500/10"
-        },
-        {
-            title: "Optimization & Upgrade",
-            icon: <ShieldAlert />,
-            desc: "Redesigning internal orifices and spool tolerances to resolve legacy cavitation erosion and increase flow throughput.",
+            title: "High Pressure Rating",
+            icon: <Gauge />,
+            desc: "Robust mechanical containment sleeve rated up to 350 bar, ensuring durability in main distribution lines.",
             color: "text-rose-400",
             bgColor: "bg-rose-500/10"
+        },
+        {
+            title: "Micro-Processor Filtering",
+            icon: <ShieldCheck />,
+            desc: "DSP module with built-in digital filters that ignore transient spikes, oil aerosol contaminants, and trace solvents.",
+            color: "text-amber-400",
+            bgColor: "bg-amber-500/10"
         }
     ];
 
     const faqs = [
         {
-            q: "Why reverse engineer a sensor valve instead of buying a replacement?",
-            a: "Many industrial and vintage process systems rely on legacy valves that are obsolete or discontinued by the original manufacturer. Reverse engineering allows us to reproduce identical or upgraded replacement components, preventing costly system overhauls and downtime."
+            q: "What is the difference between relative humidity and dew point temperature?",
+            a: "Relative humidity (RH) represents the percentage of water vapor present in gas relative to its maximum saturation capacity at a specific temperature. Dew point is the absolute temperature to which a gas must be cooled (at constant pressure) for water vapor to condense into liquid water. Dew point provides an absolute measure of moisture, independent of gas temperature fluctuations."
         },
         {
-            q: "How do you verify the material properties of the original valve?",
-            a: "We perform Optical Emission Spectrometry (OES) or Energy-Dispersive X-ray Spectroscopy (EDS) to determine the exact elemental composition. Mechanical hardness tests and tensile simulations are also conducted to ensure the replacement alloy matches or exceeds structural requirements."
+            q: "Why is dew point measurement critical in compressed air systems?",
+            a: "Excess moisture in compressed air leads to pipe corrosion, pneumatic valve failures, sensor degradation, and ice blockage in cold environments. According to ISO 8573-1, specific industries require dew points as low as -40°C to -70°C to protect delicate equipment and product quality."
         },
         {
-            q: "Can the reverse-engineered valve perform better than the original?",
-            a: "Yes. By utilizing Computational Fluid Dynamics (CFD) modeling, we identify turbulence zones and flow restrictions. We can then optimize internal geometries (such as changing spool shapes or widening channels) and upgrade materials (e.g. from cast iron to duplex stainless steel) to boost performance and lifespan."
+            q: "How does a capacitive dew point sensor detect trace moisture?",
+            a: "A capacitive sensor uses a porous polymer or aluminum oxide dielectric layer sandwiched between two conductive plates. Water molecules from the gas enter the porous dielectric, altering its dielectric constant and changing the sensor's capacitance, which is measured and calibrated to dew point."
         },
         {
-            q: "How do you ensure leak-free sealing in the recreated valve?",
-            a: "Our parametric CAD models specify strict geometric dimensioning and tolerancing (GD&T). We recreate mating seal grooves for O-rings, gaskets, and metal-to-metal seating areas under precise surface finish and dimensional tolerances, preventing fluid leaks under operating pressures."
+            q: "How often should dew point sensors be calibrated?",
+            a: "Due to contamination from compressor oil aerosols, particulate matter, and sensor drift, we recommend calibrating capacitive sensors annually against certified NIST traceable dew point generators."
         }
     ];
 
     const relatedBlogs = [
         {
-            title: "Dew Point Sensor Moisture Control",
-            slug: "dew-point-sensor",
-            desc: "Exploring trace moisture analysis and calibration in high-pressure gas streams.",
-            image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600"
+            title: "Vibration Sensor Plant Monitoring",
+            slug: "vibration-sensor",
+            desc: "Prevent compressor failures by monitoring vibration thresholds in real-time.",
+            image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=600"
         },
         {
             title: "Pressure Sensor Engineering Design",
@@ -101,25 +101,25 @@ const SensorValvePage = () => {
             image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=600"
         },
         {
-            title: "Vibration Sensor Plant Monitoring",
-            slug: "vibration-sensor",
-            desc: "Prevent compressor failures by monitoring vibration thresholds in real-time.",
-            image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=600"
+            title: "Humidity Sensor Instrumentation",
+            slug: "humidity-sensor",
+            desc: "Exploring relative humidity and temperature transmitter engineering.",
+            image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600"
         }
     ];
 
     return (
         <div className="min-h-screen bg-[#0b0f19] text-slate-100 pt-20 relative overflow-hidden">
             <SEO
-                title="Sensor Valve Reverse Engineering & Optimization - Lasak Technologies"
-                description="Technical analysis of sensor valve reverse engineering, 3D scanning metrology, CFD flow simulation, material upgrades, and GD&T validation."
-                keywords="sensor valve, reverse engineering, 3D scanning, CFD simulation, ASME B31.3, metallurgy, fluid flow control"
-                canonical="/blogs/sensor-valve-design"
+                title="Dew Point Sensor Design & Trace Moisture Analysis - Lasak Technologies"
+                description="Technical analysis of dew point sensors, trace moisture measurement, capacitive polymer technology, chilled mirrors, and calibration for high-pressure systems."
+                keywords="dew point sensor, trace moisture, chilled mirror hygrometer, capacitive humidity sensor, ISO 8573-1, process automation"
+                canonical="/blogs/dew-point-sensor"
             />
 
             {/* Background Glows */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] -z-10 animate-pulse delay-1000"></div>
+            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[100px] -z-10 animate-pulse delay-1000"></div>
 
             {/* Hero Section */}
             <section className="relative py-20 px-4 md:px-8 border-b border-slate-800 bg-[#0d1425]/50">
@@ -131,19 +131,19 @@ const SensorValvePage = () => {
                         className="text-center md:text-left space-y-6"
                     >
                         <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
-                            <RefreshCw size={16} />
+                            <Gauge size={16} />
                             <span className="text-xs font-bold uppercase tracking-widest">Reverse Engineering</span>
                         </motion.div>
 
                         <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-                            Sensor Valve <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-500 font-black">Reverse Engineering & Optimization</span>
+                            Dew Point Sensor & <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 font-black">Trace Moisture Engineering</span>
                         </motion.h1>
 
                         <motion.div variants={fadeIn} className="flex flex-wrap gap-6 justify-center md:justify-start text-sm text-slate-400 font-light">
                             <span className="flex items-center gap-2">
                                 <User size={14} className="text-indigo-500" />
-                                Brindhaa A
+                                Lasak Engineering Team
                             </span>
                             <span className="flex items-center gap-2">
                                 <Tag size={14} className="text-indigo-500" />
@@ -151,7 +151,7 @@ const SensorValvePage = () => {
                             </span>
                             <span className="flex items-center gap-2">
                                 <Calendar size={14} className="text-indigo-500" />
-                                September 22, 2025
+                                June 23, 2026
                             </span>
                         </motion.div>
 
@@ -160,8 +160,8 @@ const SensorValvePage = () => {
                             className="mt-10 rounded-[2rem] overflow-hidden border border-slate-800 shadow-2xl aspect-[21/9]"
                         >
                             <img
-                                src={sensorValveImg}
-                                alt="Sensor Valve Reverse Engineering Setup"
+                                src={dewPointSensorImg}
+                                alt="Industrial Dew Point Sensor Testing"
                                 className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                             />
                         </motion.div>
@@ -189,8 +189,8 @@ const SensorValvePage = () => {
                             </div>
 
                             <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900 border border-indigo-500/20 rounded-[2rem] p-8 text-center">
-                                <h4 className="font-bold text-white text-lg mb-2">Need Valve Reverse Engineering?</h4>
-                                <p className="text-xs text-slate-400 mb-6">We provide high-precision 3D scanning, material spectrometry, and CFD-based optimization for legacy flow control components.</p>
+                                <h4 className="font-bold text-white text-lg mb-2">Need Precise Sensor Integration?</h4>
+                                <p className="text-xs text-slate-400 mb-6">We provide expert reverse engineering, PCB design, and calibration protocols for industrial sensor manifolds.</p>
                                 <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-[0_4px_20px_rgba(99,102,241,0.4)] w-full">
                                     Contact Project Office <ArrowRight size={16} />
                                 </Link>
@@ -204,7 +204,7 @@ const SensorValvePage = () => {
                             <div className="pl-6 border-l-4 border-indigo-500 space-y-4">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Introduction</h2>
                                 <p className="text-slate-300 leading-relaxed text-lg font-light">
-                                    In modern industrial process plants, fluid distribution lines, and automotive control loops, sensor valves (such as solenoid-actuated valves, pressure check valves, and proportional flow control valves) are critical components. However, when legacy valves become obsolete, or when manufacturers discontinue replacement parts, operations face significant downtime risks. Recreating these specialized assemblies without original technical data sheets requires an advanced reverse engineering protocol. Deconstructing, analyzing, and optimizing a sensor valve combines optical scanning metrology, mechanical CAD construction, metallurgy testing, and computational fluid simulations.
+                                    Moisture is a highly damaging contaminant in industrial gas pipelines, clean rooms, petrochemical processes, and compressed air grids. Left unchecked, water vapor condenses inside metal pipes, triggering rapid chemical oxidation (corrosion), forming solid methane-water structures (hydrates) that clog lines, and damaging sensitive downstream pneumatic tools. Determining absolute moisture levels under pressure requires measuring the dew point temperature. A modern dew point sensor must combine material physics, mechanical packaging, digital signal filters, and precise calibration algorithms to register trace moisture levels accurately down to parts per million (ppm).
                                 </p>
                             </div>
 
@@ -212,18 +212,21 @@ const SensorValvePage = () => {
                             <div className="space-y-6 text-slate-300 leading-relaxed font-light">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Detailed Technical Content</h2>
                                 <p>
-                                    The reverse engineering process begins by disassembling the donor valve down to its individual parts, including the housing, spindle, return spring, electromagnetic coil, and internal sealing seats. Each component is thoroughly cleaned to remove deposits, rust, or fluid scale that could compromise measurement accuracy.
+                                    To measure dew point down to extreme dry-air limits (e.g. -60°C or -80°C), modern instrumentation relies on two main sensor styles: capacitive metal-oxide/polymer sensors and high-precision optoelectronic chilled mirror hygrometers.
                                 </p>
                                 <p>
-                                    To digitize complex internal pathways and thread details, we employ high-resolution 3D optical and blue-light scanner metrology. This generates a dense point cloud which is converted into a polygonal mesh. Our design engineers import this mesh into parametric CAD suites (such as SolidWorks or PTC Creo) to reconstruct the valve geometries. We define exact dimensions using Geometric Dimensioning and Tolerancing (GD&T) to verify mating fits and O-ring compression ratios.
+                                    Capacitive sensors feature a planar capacitor structure fabricated on a silicon substrate. The dielectric layer consists of a highly porous polymer or a ceramic metal-oxide (typically aluminum oxide, Al2O3). The top electrode is a gas-permeable thin gold layer, which allows moisture to diffuse into the pores of the dielectric layer. Because water has a very high relative permittivity (permittivity constant of approx. 80 at room temperature) compared to the polymer or air, even minute volumes of absorbed moisture change the overall dielectric constant. This alters the sensor's electrical capacitance.
                                 </p>
-                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Computational Fluid Dynamics (CFD) Flow Profile Optimization</h3>
                                 <p>
-                                    Simply copying dimensions is often insufficient; legacy valves frequently present design weaknesses like cavitation wear and high pressure drops. Our engineers construct a CFD simulation model, applying fluid boundary parameters matching the system's target profile (flow rate, viscosity, and peak pressure). The simulation maps velocity vectors and turbulent kinetic energy. If cavitation zones (low-pressure pockets where micro-bubbles form and implode, eroding the metal) are identified, we optimize the internal geometries—for instance, adjusting the chamfer angles of the valve spool or widening the bypass ports.
+                                    However, capacitance changes are non-linear and highly temperature-dependent. To resolve this, our engineering group integrates an on-board high-precision platinum Resistance Temperature Detector (RTD) alongside the capacitive sensor. A localized microcontroller runs dynamic polynomial interpolation algorithms to continuously apply temperature compensation to the measured capacitance, deriving absolute dew point temperature calculations.
                                 </p>
-                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Metallurgy and Material Spectroscopy Upgrades</h3>
+                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Chilled Mirror Technology</h3>
                                 <p>
-                                    To ensure the recreated valve withstands high stresses and corrosive environments, we analyze the metal composition using Optical Emission Spectrometry (OES). Identifying the base alloy allows us to recommend material upgrades. For example, replacing a standard brass or cast carbon steel housing with a Super Duplex Stainless Steel or Hastelloy element significantly extends wear resistance and component life.
+                                    For laboratory calibration standards, we utilize the chilled mirror approach. In this mechanism, a small copper mirror is cooled by a thermoelectric Peltier element while a photodetector monitors light reflected from the mirror surface. As the temperature drops, the condensation point is reached, causing dew to form on the mirror, which scatters light. The photodetector monitors this scatter, and the Peltier element is adjusted dynamically to maintain a stable, thin film of dew. The mirror's temperature is then recorded exactly at this threshold, providing a direct physical measurement of the dew point.
+                                </p>
+                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Mechanical Enclosure & Sampling Systems</h3>
+                                <p>
+                                    Protecting the sensing elements from oil droplets, rust flakes, and high flow velocities requires designing a robust mechanical sampling block. In our mechanical models, we specify 316L stainless steel chambers with internal sintered metal particulate filters (0.5 to 5 microns) to prevent mechanical abrasion of the porous capacitor.
                                 </p>
                             </div>
 
@@ -247,13 +250,13 @@ const SensorValvePage = () => {
                             <div className="space-y-6">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Industrial Applications</h2>
                                 <p className="text-slate-300 leading-relaxed font-light">
-                                    Optimized sensor valves are critical across numerous process control industries:
+                                    Dew point sensors are essential components across various industrial sectors:
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     {[
-                                        { title: "Oil & Gas Refineries", desc: "Rebuilding obsolete safety bypass valves and pilot control manifolds exposed to sour hydrocarbons." },
-                                        { title: "Chemical Dosing Units", desc: "Recreating precision chemical metering valves using non-corrosive PEEK and Hastelloy materials." },
-                                        { title: "Automotive Transmission Control", desc: "Optimizing solenoid flow valves to manage hydraulic transmission fluid flows cleanly under high temperatures." }
+                                        { title: "Compressed Air Systems", desc: "Installed in desiccant dryers and main air distribution headers to guarantee ISO 8573-1 Class 1/2 moisture limits." },
+                                        { title: "Semiconductor Fab Rooms", desc: "Continuous sub-ppb level moisture monitoring in pure nitrogen and argon purge gas lines during wafer manufacturing." },
+                                        { title: "CNG Station Protection", desc: "Monitoring moisture content in high-pressure CNG storage loops to block water condensation and hydrate clogging." }
                                     ].map((app, i) => (
                                         <div key={i} className="bg-[#101726] border border-slate-800 p-6 rounded-2xl">
                                             <h5 className="font-bold text-white text-base mb-2 uppercase tracking-tight">{app.title}</h5>
@@ -268,10 +271,10 @@ const SensorValvePage = () => {
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Key Benefits</h2>
                                 <div className="space-y-4">
                                     {[
-                                        { title: "Extended Operational Lifespan", desc: "Upgraded metallurgical compositions and optimized flow geometries reduce cavitation wear, extending life by up to 30%." },
-                                        { title: "Mitigate Obsolete Spares Risks", desc: "Provides a reliable channel to recreate components that are no longer supported or supplied by the OEM." },
-                                        { title: "Lower Operating Pressure Drop", desc: "CFD flow path adjustments reduce internal flow restriction, improving overall pumping and plant energy efficiency." },
-                                        { title: "Complete Parametric CAD Assets", desc: "Delivers complete 2D manufacturing prints and 3D step files for on-demand future fabrication cycles." }
+                                        { title: "Prevents Infrastructure Degradation", desc: "Detecting moisture before it condenses blocks corrosion in pipelines and carbon-steel storage manifolds." },
+                                        { title: "Energy Savings in Dryers", desc: "Enables demand-driven regeneration control of desiccant air dryers, cutting energy bills by up to 25%." },
+                                        { title: "Long-Term Operational Stability", desc: "Porous ceramic oxide layers provide high chemical resistance, reducing calibration drift over time." },
+                                        { title: "Fast Dew Point Recovery", desc: "Specially designed planar substrates dry out rapidly after liquid water exposure events." }
                                     ].map((b, i) => (
                                         <div key={i} className="flex gap-4 bg-slate-900/30 p-6 rounded-2xl border border-slate-800/50">
                                             <span className="text-indigo-500 font-bold text-lg">0{i+1}.</span>
@@ -288,7 +291,7 @@ const SensorValvePage = () => {
                             <div className="space-y-4 text-slate-300 leading-relaxed font-light">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Conclusion</h2>
                                 <p>
-                                    Sensor valve reverse engineering is more than replicating dimensions—it is an opportunity to analyze and fix design failures. Applying blue-light 3D scanning, chemical spectrometry, and computational fluid dynamics (CFD) optimization delivers replacement parts that regularly outperform the original components. Lasak Technologies continues to lead the design and reconstruction of critical fluid control systems across the process automation sectors.
+                                    Managing trace moisture is a fundamental pillar of process engineering in industrial gas networks. By developing advanced dew point transmitters utilizing thin-film polymer and ceramic capacitors, coupled with high-durability stainless steel sampling skids, we enable robust, accurate, and repeatable moisture measurements. Lasak Technologies remains dedicated to engineering high-precision sensor systems for the alternative energy and automation sectors.
                                 </p>
                             </div>
 
@@ -375,4 +378,4 @@ const SensorValvePage = () => {
     );
 };
 
-export default SensorValvePage;
+export default DewPointSensorPage;

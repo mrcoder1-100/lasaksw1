@@ -223,7 +223,8 @@ const Navbar = () => {
                         { name: "Reverse Engineering", href: getLink("/blogs?category=mechanical&subcategory=reverse-engineering") },
                         { name: "Retro Fitting", href: getLink("/blogs?category=mechanical&subcategory=retro-fitting") },
                         { name: "Patent Drawing", href: getLink("/blogs?category=mechanical&subcategory=patent-drawing") },
-                        { name: "New Product Development", href: getLink("/blogs?category=mechanical&subcategory=new-product-development") }
+                        { name: "New Product Development", href: getLink("/blogs?category=mechanical&subcategory=new-product-development") },
+                        { name: "3D Modeling", href: getLink("/blogs?category=mechanical&subcategory=3d-modeling") }
                     ]
                 },
                 { name: "Civil Blogs", href: getLink("/blogs?category=civil") },

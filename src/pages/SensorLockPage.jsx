@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Settings, RefreshCw, Scan, Cpu, ShieldAlert, Layers, User, Calendar, Tag, ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
+import { Cpu, ShieldCheck, Lock, Layers, User, Calendar, Tag, ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Clients from '../components/Clients';
-import sensorValveImg from '../assets/sensor-valve.png';
+import sensorLockImg from '../assets/sensor-lock.png';
 
-const SensorValvePage = () => {
+const SensorLockPage = () => {
     const [activeFaq, setActiveFaq] = useState(null);
 
     const toggleFaq = (index) => {
@@ -29,97 +29,97 @@ const SensorValvePage = () => {
     };
 
     const highlights = [
-        '3D Optical Metrology Scan Digitizing',
-        'Computational Fluid Dynamics (CFD) Profiling',
-        'Finite Element Analysis (FEA) Stress Mapping',
-        'Material Grade Spectrometry Upgrades',
-        'Design for Manufacturing (DFM) CNC Tooling',
-        'Pressure Drop & Cavitation Prevention'
+        'Electromagnetic Solenoid Plunger Physics',
+        'Optical & Hall-Effect Lock Status Sensors',
+        'High-Strength Zinc Alloy Deadbolt Casting',
+        'DFM Injection Molding Enclosure Shells',
+        'Ultra-Low Standby Power Microcontroller Loops',
+        'FCC/CE ESD Electrostatic Discharge Shielding'
     ];
 
     const features = [
         {
-            title: "3D Scan Digitizing",
-            icon: <Scan />,
-            desc: "High-resolution optical scanners capture complex internal and external valve housing surfaces down to 10-micron tolerances.",
+            title: "Solenoid Locking Bolt",
+            icon: <Lock />,
+            desc: "Custom low-power solenoid actuator that extends a hardened steel bolt, resisting high mechanical forcing loads.",
+            color: "text-rose-400",
+            bgColor: "bg-rose-500/10"
+        },
+        {
+            title: "Triple-Status Sensors",
+            icon: <Cpu />,
+            desc: "Dual Hall-effect and micro-switch sensors to verify deadbolt extension, retraction, and door alignment status.",
             color: "text-indigo-400",
             bgColor: "bg-indigo-500/10"
         },
         {
-            title: "Fluid Flow Modeling",
-            icon: <Cpu />,
-            desc: "Integrated CFD analysis maps velocity vectors, pressure variations, and turbulent kinetic energy inside flow cavities.",
-            color: "text-violet-400",
-            bgColor: "bg-violet-500/10"
-        },
-        {
-            title: "Material Spectrometry",
+            title: "Compact DFM Shell",
             icon: <Layers />,
-            desc: "Optical Emission Spectrometry (OES) identifies the exact material chemistry, allowing upgrades to corrosion-resistant alloys.",
-            color: "text-sky-400",
-            bgColor: "bg-sky-500/10"
+            desc: "Injection-molded PC-ABS housing designed with strict draft angles (1.5°), snap hinges, and internal guide tracks.",
+            color: "text-blue-400",
+            bgColor: "bg-blue-500/10"
         },
         {
-            title: "Optimization & Upgrade",
-            icon: <ShieldAlert />,
-            desc: "Redesigning internal orifices and spool tolerances to resolve legacy cavitation erosion and increase flow throughput.",
-            color: "text-rose-400",
-            bgColor: "bg-rose-500/10"
+            title: "Secure Override Dial",
+            icon: <ShieldCheck />,
+            desc: "Mechanical manual override lock cylinder bypassing the electronics for safety during power failures.",
+            color: "text-emerald-400",
+            bgColor: "bg-emerald-500/10"
         }
     ];
 
     const faqs = [
         {
-            q: "Why reverse engineer a sensor valve instead of buying a replacement?",
-            a: "Many industrial and vintage process systems rely on legacy valves that are obsolete or discontinued by the original manufacturer. Reverse engineering allows us to reproduce identical or upgraded replacement components, preventing costly system overhauls and downtime."
+            q: "How does a sensor lock verify that the door is locked, not just closed?",
+            a: "A standard smart lock only knows if the solenoid fired. A sensor lock uses a triple-sensor check: a door-frame reed switch confirms the door is closed, a Hall-effect sensor checks the solenoid bolt position, and a tailpiece micro-switch confirms the deadbolt has entered the strike plate."
         },
         {
-            q: "How do you verify the material properties of the original valve?",
-            a: "We perform Optical Emission Spectrometry (OES) or Energy-Dispersive X-ray Spectroscopy (EDS) to determine the exact elemental composition. Mechanical hardness tests and tensile simulations are also conducted to ensure the replacement alloy matches or exceeds structural requirements."
+            q: "What materials are selected for the mechanical deadbolt and gears?",
+            a: "The deadbolt is cast from high-strength zinc alloy or stainless steel to resist shear. Internal transmission gears are molded from POM (Polyoxymethylene / Acetal) due to its self-lubricating properties, wear resistance, and high dimensional stability."
         },
         {
-            q: "Can the reverse-engineered valve perform better than the original?",
-            a: "Yes. By utilizing Computational Fluid Dynamics (CFD) modeling, we identify turbulence zones and flow restrictions. We can then optimize internal geometries (such as changing spool shapes or widening channels) and upgrade materials (e.g. from cast iron to duplex stainless steel) to boost performance and lifespan."
+            q: "How is the plastic enclosure designed for injection molding?",
+            a: "The PC-ABS housing uses a uniform wall thickness of 2.0mm to avoid sink marks. We add draft angles of 1.5° on all vertical walls and design internal screw bosses with gussets to withstand the high torque from mounting screws."
         },
         {
-            q: "How do you ensure leak-free sealing in the recreated valve?",
-            a: "Our parametric CAD models specify strict geometric dimensioning and tolerancing (GD&T). We recreate mating seal grooves for O-rings, gaskets, and metal-to-metal seating areas under precise surface finish and dimensional tolerances, preventing fluid leaks under operating pressures."
+            q: "How does the lock manage power consumption?",
+            a: "The microcontroller operates in a deep sleep state (drawing under 10 microamps). It wakes up only when an external trigger (like an RFID swipe or keypad press) is detected, activating the solenoid for less than 500 milliseconds to conserve battery."
         }
     ];
 
     const relatedBlogs = [
         {
-            title: "Dew Point Sensor Moisture Control",
-            slug: "dew-point-sensor",
-            desc: "Exploring trace moisture analysis and calibration in high-pressure gas streams.",
+            title: "JCB Toy Modelling & CAD Prototyping",
+            slug: "jcb-toy-modelling",
+            desc: "Excavator toy modeling, mechanical linkages, and DFM injection molding parameters.",
+            image: "https://images.unsplash.com/photo-1581091870627-849cc7c1b525?q=80&w=600"
+        },
+        {
+            title: "Miniature Model Development",
+            slug: "miniature-model",
+            desc: "High-precision scale modeling and assembly engineering processes.",
+            image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=600"
+        },
+        {
+            title: "Sensor Valve Reverse Engineering",
+            slug: "sensor-valve-design",
+            desc: "Technical review of fluid control valves, solenoid actuators, and structural design.",
             image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600"
-        },
-        {
-            title: "Pressure Sensor Engineering Design",
-            slug: "pressure-sensor",
-            desc: "Deep dive into piezoresistive pressure transmitters and diaphragm structures.",
-            image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=600"
-        },
-        {
-            title: "Vibration Sensor Plant Monitoring",
-            slug: "vibration-sensor",
-            desc: "Prevent compressor failures by monitoring vibration thresholds in real-time.",
-            image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=600"
         }
     ];
 
     return (
         <div className="min-h-screen bg-[#0b0f19] text-slate-100 pt-20 relative overflow-hidden">
             <SEO
-                title="Sensor Valve Reverse Engineering & Optimization - Lasak Technologies"
-                description="Technical analysis of sensor valve reverse engineering, 3D scanning metrology, CFD flow simulation, material upgrades, and GD&T validation."
-                keywords="sensor valve, reverse engineering, 3D scanning, CFD simulation, ASME B31.3, metallurgy, fluid flow control"
-                canonical="/blogs/sensor-valve-design"
+                title="Sensor Lock Design & Smart Hardware Engineering - Lasak Technologies"
+                description="Technical analysis of smart sensor locks, electromagnetic solenoids, Hall-effect status checks, PC-ABS enclosure DFM, and power management loops."
+                keywords="sensor lock, smart lock, solenoid actuator, Hall-effect sensor, DFM injection molding, product design"
+                canonical="/blogs/sensor-lock"
             />
 
             {/* Background Glows */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] -z-10 animate-pulse delay-1000"></div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[100px] -z-10 animate-pulse delay-1000"></div>
 
             {/* Hero Section */}
             <section className="relative py-20 px-4 md:px-8 border-b border-slate-800 bg-[#0d1425]/50">
@@ -130,28 +130,28 @@ const SensorValvePage = () => {
                         variants={staggerContainer}
                         className="text-center md:text-left space-y-6"
                     >
-                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
-                            <RefreshCw size={16} />
-                            <span className="text-xs font-bold uppercase tracking-widest">Reverse Engineering</span>
+                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400">
+                            <Lock size={16} />
+                            <span className="text-xs font-bold uppercase tracking-widest">New Product Development</span>
                         </motion.div>
 
                         <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-                            Sensor Valve <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-500 font-black">Reverse Engineering & Optimization</span>
+                            Sensor Lock Design & <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-indigo-400 font-black">Smart Hardware Engineering</span>
                         </motion.h1>
 
                         <motion.div variants={fadeIn} className="flex flex-wrap gap-6 justify-center md:justify-start text-sm text-slate-400 font-light">
                             <span className="flex items-center gap-2">
-                                <User size={14} className="text-indigo-500" />
-                                Brindhaa A
+                                <User size={14} className="text-rose-500" />
+                                Lasak Engineering Team
                             </span>
                             <span className="flex items-center gap-2">
-                                <Tag size={14} className="text-indigo-500" />
+                                <Tag size={14} className="text-rose-500" />
                                 Mechanical Projects
                             </span>
                             <span className="flex items-center gap-2">
-                                <Calendar size={14} className="text-indigo-500" />
-                                September 22, 2025
+                                <Calendar size={14} className="text-rose-500" />
+                                June 23, 2026
                             </span>
                         </motion.div>
 
@@ -160,8 +160,8 @@ const SensorValvePage = () => {
                             className="mt-10 rounded-[2rem] overflow-hidden border border-slate-800 shadow-2xl aspect-[21/9]"
                         >
                             <img
-                                src={sensorValveImg}
-                                alt="Sensor Valve Reverse Engineering Setup"
+                                src={sensorLockImg}
+                                alt="Smart Sensor Lock System Testing"
                                 className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                             />
                         </motion.div>
@@ -181,17 +181,17 @@ const SensorValvePage = () => {
                                 <ul className="space-y-4">
                                     {highlights.map((h, i) => (
                                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
-                                            <span className="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
                                             <span>{h}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
 
-                            <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900 border border-indigo-500/20 rounded-[2rem] p-8 text-center">
-                                <h4 className="font-bold text-white text-lg mb-2">Need Valve Reverse Engineering?</h4>
-                                <p className="text-xs text-slate-400 mb-6">We provide high-precision 3D scanning, material spectrometry, and CFD-based optimization for legacy flow control components.</p>
-                                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-[0_4px_20px_rgba(99,102,241,0.4)] w-full">
+                            <div className="bg-gradient-to-br from-rose-900/40 to-slate-900 border border-rose-500/20 rounded-[2rem] p-8 text-center">
+                                <h4 className="font-bold text-white text-lg mb-2">Need Custom Smart Hardware Design?</h4>
+                                <p className="text-xs text-slate-400 mb-6">We specialize in electronic lock layout design, injection molding optimization, mechanism validation, and low-power circuit tuning.</p>
+                                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-[0_4px_20px_rgba(244,63,94,0.4)] w-full">
                                     Contact Project Office <ArrowRight size={16} />
                                 </Link>
                             </div>
@@ -201,10 +201,10 @@ const SensorValvePage = () => {
                         <div className="lg:col-span-8 space-y-16">
                             
                             {/* Introduction */}
-                            <div className="pl-6 border-l-4 border-indigo-500 space-y-4">
+                            <div className="pl-6 border-l-4 border-rose-500 space-y-4">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Introduction</h2>
                                 <p className="text-slate-300 leading-relaxed text-lg font-light">
-                                    In modern industrial process plants, fluid distribution lines, and automotive control loops, sensor valves (such as solenoid-actuated valves, pressure check valves, and proportional flow control valves) are critical components. However, when legacy valves become obsolete, or when manufacturers discontinue replacement parts, operations face significant downtime risks. Recreating these specialized assemblies without original technical data sheets requires an advanced reverse engineering protocol. Deconstructing, analyzing, and optimizing a sensor valve combines optical scanning metrology, mechanical CAD construction, metallurgy testing, and computational fluid simulations.
+                                    Smart building security, safe locker containment, automated access control loops, and logistics container seals require rugged, low-power, and secure locking mechanisms. Standard mechanical locks lack digital logs and remote override verification. Delivering a secure, smart sensor lock demands integrating electromagnetic solenoids, precise deadbolt position sensors, impact-safe metal castings, and weather-proof injection-molded enclosures. At Lasak Technologies, our engineering team designs smart locking devices that combine high mechanical shear limits with robust electronic status monitoring.
                                 </p>
                             </div>
 
@@ -212,18 +212,24 @@ const SensorValvePage = () => {
                             <div className="space-y-6 text-slate-300 leading-relaxed font-light">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Detailed Technical Content</h2>
                                 <p>
-                                    The reverse engineering process begins by disassembling the donor valve down to its individual parts, including the housing, spindle, return spring, electromagnetic coil, and internal sealing seats. Each component is thoroughly cleaned to remove deposits, rust, or fluid scale that could compromise measurement accuracy.
+                                    A sensor lock functions by driving a mechanical bolt into a strike plate using an electrical actuator, while utilizing a sensor loop to verify lock status.
                                 </p>
                                 <p>
-                                    To digitize complex internal pathways and thread details, we employ high-resolution 3D optical and blue-light scanner metrology. This generates a dense point cloud which is converted into a polygonal mesh. Our design engineers import this mesh into parametric CAD suites (such as SolidWorks or PTC Creo) to reconstruct the valve geometries. We define exact dimensions using Geometric Dimensioning and Tolerancing (GD&T) to verify mating fits and O-ring compression ratios.
+                                    The primary actuator is a low-power linear solenoid. It features a copper wire coil wrapped around a steel plunger. When pulsed with current, it generates a magnetic field that pulls the plunger, moving the deadbolt. A return spring retracts the bolt when power is cut. For fail-secure locks, a motor-driven gear mechanism is preferred. We design a high-reduction gearbox using Polyoxymethylene (POM) gears, which provides self-lubrication, silent operation, and resists binding.
                                 </p>
-                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Computational Fluid Dynamics (CFD) Flow Profile Optimization</h3>
+                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Integrated Position Feedback Sensor Array</h3>
                                 <p>
-                                    Simply copying dimensions is often insufficient; legacy valves frequently present design weaknesses like cavitation wear and high pressure drops. Our engineers construct a CFD simulation model, applying fluid boundary parameters matching the system's target profile (flow rate, viscosity, and peak pressure). The simulation maps velocity vectors and turbulent kinetic energy. If cavitation zones (low-pressure pockets where micro-bubbles form and implode, eroding the metal) are identified, we optimize the internal geometries—for instance, adjusting the chamfer angles of the valve spool or widening the bypass ports.
+                                    To verify the lock is secure, we integrate a sensor array. A magnetic reed sensor or Hall-effect IC tracks a magnet inside the door frame, confirming the door is closed. 
                                 </p>
-                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Metallurgy and Material Spectroscopy Upgrades</h3>
                                 <p>
-                                    To ensure the recreated valve withstands high stresses and corrosive environments, we analyze the metal composition using Optical Emission Spectrometry (OES). Identifying the base alloy allows us to recommend material upgrades. For example, replacing a standard brass or cast carbon steel housing with a Super Duplex Stainless Steel or Hastelloy element significantly extends wear resistance and component life.
+                                    Additionally, a reflective optical switch or mechanical micro-switch detects the deadbolt's position. This prevents false lock signals if the deadbolt is blocked by a misaligned door frame.
+                                </p>
+                                <h3 className="text-xl font-bold text-white mt-6 mb-2">PC-ABS Enclosure DFM and ESD Protection</h3>
+                                <p>
+                                    The lock's housing must withstand physical attacks and weather conditions. We select a PC-ABS blend, combining the impact strength of polycarbonate with the injection molding ease of ABS. 
+                                </p>
+                                <p>
+                                    We design the enclosure with uniform wall thickness, internal reinforcing ribs, and draft angles (1.5°) to ensure clean molding. Internal slots hold the battery pack, circuit board, and drive motor securely. The design also incorporates ESD shielding to protect the microcontroller from electrostatic shocks up to 15 kV.
                                 </p>
                             </div>
 
@@ -247,13 +253,13 @@ const SensorValvePage = () => {
                             <div className="space-y-6">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Industrial Applications</h2>
                                 <p className="text-slate-300 leading-relaxed font-light">
-                                    Optimized sensor valves are critical across numerous process control industries:
+                                    Smart sensor lock devices are used across several commercial sectors:
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     {[
-                                        { title: "Oil & Gas Refineries", desc: "Rebuilding obsolete safety bypass valves and pilot control manifolds exposed to sour hydrocarbons." },
-                                        { title: "Chemical Dosing Units", desc: "Recreating precision chemical metering valves using non-corrosive PEEK and Hastelloy materials." },
-                                        { title: "Automotive Transmission Control", desc: "Optimizing solenoid flow valves to manage hydraulic transmission fluid flows cleanly under high temperatures." }
+                                        { title: "Smart Office Security", desc: "Keyless door locks integrated with card readers, NFC, and centralized management software." },
+                                        { title: "Safe Deposit Lockers", desc: "Dual-access control locks requiring both digital code input and master keys to open." },
+                                        { title: "Logistics Cargo Seals", desc: "Heavy-duty tracking locks on shipping container doors that log GPS and lock-status data." }
                                     ].map((app, i) => (
                                         <div key={i} className="bg-[#101726] border border-slate-800 p-6 rounded-2xl">
                                             <h5 className="font-bold text-white text-base mb-2 uppercase tracking-tight">{app.title}</h5>
@@ -268,13 +274,13 @@ const SensorValvePage = () => {
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Key Benefits</h2>
                                 <div className="space-y-4">
                                     {[
-                                        { title: "Extended Operational Lifespan", desc: "Upgraded metallurgical compositions and optimized flow geometries reduce cavitation wear, extending life by up to 30%." },
-                                        { title: "Mitigate Obsolete Spares Risks", desc: "Provides a reliable channel to recreate components that are no longer supported or supplied by the OEM." },
-                                        { title: "Lower Operating Pressure Drop", desc: "CFD flow path adjustments reduce internal flow restriction, improving overall pumping and plant energy efficiency." },
-                                        { title: "Complete Parametric CAD Assets", desc: "Delivers complete 2D manufacturing prints and 3D step files for on-demand future fabrication cycles." }
+                                        { title: "Positive Status Feedback", desc: "Embedded sensor loops eliminate false status readings, confirming the deadbolt is securely engaged." },
+                                        { title: "Highly Secure Deadbolt", desc: "Zinc alloy castings and hardened steel pins resist hammer attacks and sawing." },
+                                        { title: "Extremely Long Battery Life", desc: "Deep sleep controller states and fast solenoid pulses extend battery life to over a year on AA batteries." },
+                                        { title: "Manual Safety Override", desc: "Integrated mechanical key cylinders ensure access is maintained during flat battery emergencies." }
                                     ].map((b, i) => (
                                         <div key={i} className="flex gap-4 bg-slate-900/30 p-6 rounded-2xl border border-slate-800/50">
-                                            <span className="text-indigo-500 font-bold text-lg">0{i+1}.</span>
+                                            <span className="text-rose-500 font-bold text-lg">0{i+1}.</span>
                                             <div>
                                                 <h5 className="font-bold text-white text-base mb-1">{b.title}</h5>
                                                 <p className="text-sm text-slate-400 font-light leading-relaxed">{b.desc}</p>
@@ -288,7 +294,7 @@ const SensorValvePage = () => {
                             <div className="space-y-4 text-slate-300 leading-relaxed font-light">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Conclusion</h2>
                                 <p>
-                                    Sensor valve reverse engineering is more than replicating dimensions—it is an opportunity to analyze and fix design failures. Applying blue-light 3D scanning, chemical spectrometry, and computational fluid dynamics (CFD) optimization delivers replacement parts that regularly outperform the original components. Lasak Technologies continues to lead the design and reconstruction of critical fluid control systems across the process automation sectors.
+                                    Smart sensor locks represent the integration of mechanical design, electronic sensors, and digital controls. By combining solenoid drives, Hall-effect sensors, and DFM-optimized PC-ABS enclosures, we build secure, durable, and highly reliable locking devices. Lasak Technologies remains a key engineering partner, helping clients bring smart hardware products from concept to manufacturing.
                                 </p>
                             </div>
 
@@ -303,7 +309,7 @@ const SensorValvePage = () => {
                                                 className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-900/50 transition-colors"
                                             >
                                                 <span className="font-bold text-white text-base flex items-center gap-3">
-                                                    <HelpCircle size={18} className="text-indigo-500 flex-shrink-0" />
+                                                    <HelpCircle size={18} className="text-rose-500 flex-shrink-0" />
                                                     {faq.q}
                                                 </span>
                                                 <ChevronDown
@@ -338,7 +344,7 @@ const SensorValvePage = () => {
                                         <Link
                                             to={`/blogs/${blog.slug}`}
                                             key={i}
-                                            className="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-all flex flex-col"
+                                            className="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-rose-500/50 transition-all flex flex-col"
                                         >
                                             <div className="h-40 overflow-hidden relative">
                                                 <img
@@ -349,14 +355,14 @@ const SensorValvePage = () => {
                                             </div>
                                             <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
                                                 <div>
-                                                    <h4 className="font-bold text-white group-hover:text-indigo-400 transition-colors text-sm uppercase tracking-tight leading-snug line-clamp-2">
+                                                    <h4 className="font-bold text-white group-hover:text-rose-400 transition-colors text-sm uppercase tracking-tight leading-snug line-clamp-2">
                                                         {blog.title}
                                                     </h4>
                                                     <p className="text-xs text-slate-500 leading-relaxed line-clamp-3 mt-2 font-light">
                                                         {blog.desc}
                                                     </p>
                                                 </div>
-                                                <span className="text-indigo-500 font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                <span className="text-rose-500 font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
                                                     Read Article <ArrowRight size={12} />
                                                 </span>
                                             </div>
@@ -375,4 +381,4 @@ const SensorValvePage = () => {
     );
 };
 
-export default SensorValvePage;
+export default SensorLockPage;

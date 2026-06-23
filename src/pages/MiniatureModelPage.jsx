@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Settings, RefreshCw, Scan, Cpu, ShieldAlert, Layers, User, Calendar, Tag, ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
+import { Box, ShieldCheck, PenTool, Layers, User, Calendar, Tag, ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Clients from '../components/Clients';
-import sensorValveImg from '../assets/sensor-valve.png';
+import miniatureModelImg from '../assets/miniature-model.jpg';
 
-const SensorValvePage = () => {
+const MiniatureModelPage = () => {
     const [activeFaq, setActiveFaq] = useState(null);
 
     const toggleFaq = (index) => {
@@ -29,40 +29,40 @@ const SensorValvePage = () => {
     };
 
     const highlights = [
-        '3D Optical Metrology Scan Digitizing',
-        'Computational Fluid Dynamics (CFD) Profiling',
-        'Finite Element Analysis (FEA) Stress Mapping',
-        'Material Grade Spectrometry Upgrades',
-        'Design for Manufacturing (DFM) CNC Tooling',
-        'Pressure Drop & Cavitation Prevention'
+        'Scale Factor Dimensional Calculations',
+        'SLA/DLP Photopolymer Resin Printing',
+        'FDM Filament Layer Profile Settings',
+        'Laser-Cut Vector Alignment Plates',
+        'CNC Acrylic Panel Micro-Machining',
+        'Surface Post-Processing & Paint Primers'
     ];
 
     const features = [
         {
-            title: "3D Scan Digitizing",
-            icon: <Scan />,
-            desc: "High-resolution optical scanners capture complex internal and external valve housing surfaces down to 10-micron tolerances.",
-            color: "text-indigo-400",
-            bgColor: "bg-indigo-500/10"
-        },
-        {
-            title: "Fluid Flow Modeling",
-            icon: <Cpu />,
-            desc: "Integrated CFD analysis maps velocity vectors, pressure variations, and turbulent kinetic energy inside flow cavities.",
-            color: "text-violet-400",
-            bgColor: "bg-violet-500/10"
-        },
-        {
-            title: "Material Spectrometry",
+            title: "Precision SLA Prints",
             icon: <Layers />,
-            desc: "Optical Emission Spectrometry (OES) identifies the exact material chemistry, allowing upgrades to corrosion-resistant alloys.",
-            color: "text-sky-400",
-            bgColor: "bg-sky-500/10"
+            desc: "Utilizing liquid resin photopolymerization to create microscopic details and smooth surface finishes down to 25-micron layers.",
+            color: "text-amber-400",
+            bgColor: "bg-amber-500/10"
         },
         {
-            title: "Optimization & Upgrade",
-            icon: <ShieldAlert />,
-            desc: "Redesigning internal orifices and spool tolerances to resolve legacy cavitation erosion and increase flow throughput.",
+            title: "Laser-Cut Frameworks",
+            icon: <PenTool />,
+            desc: "Using vector-based laser cutting on acrylic and MDF sheets to form rigid, flat backing plates and wall grids.",
+            color: "text-blue-400",
+            bgColor: "bg-blue-500/10"
+        },
+        {
+            title: "Modular Split Layout",
+            icon: <Box />,
+            desc: "Splitting massive plant models into transportable structural modules that slide together using alignment pins.",
+            color: "text-emerald-400",
+            bgColor: "bg-emerald-500/10"
+        },
+        {
+            title: "High-Accuracy Scaling",
+            icon: <ShieldCheck />,
+            desc: "Direct conversion of full-scale plant CAD models to 1:50 or 1:100 scale models without losing key details.",
             color: "text-rose-400",
             bgColor: "bg-rose-500/10"
         }
@@ -70,56 +70,56 @@ const SensorValvePage = () => {
 
     const faqs = [
         {
-            q: "Why reverse engineer a sensor valve instead of buying a replacement?",
-            a: "Many industrial and vintage process systems rely on legacy valves that are obsolete or discontinued by the original manufacturer. Reverse engineering allows us to reproduce identical or upgraded replacement components, preventing costly system overhauls and downtime."
+            q: "What scale factors are standard in industrial plant modeling?",
+            a: "Standard scale factors are 1:50 and 1:100 for process plant skids and buildings. This balances physical transportability with the ability to resolve fine piping, valve, and structural features clearly."
         },
         {
-            q: "How do you verify the material properties of the original valve?",
-            a: "We perform Optical Emission Spectrometry (OES) or Energy-Dispersive X-ray Spectroscopy (EDS) to determine the exact elemental composition. Mechanical hardness tests and tensile simulations are also conducted to ensure the replacement alloy matches or exceeds structural requirements."
+            q: "Why is SLA printing preferred over FDM for miniature details?",
+            a: "SLA (stereolithography) uses an ultraviolet laser to cure liquid photopolymer resin, allowing layer heights of 25 to 50 microns with no visible layer lines. FDM (fused deposition modeling) melts plastic filament, which leaves visible layer lines and struggles with fine features like small valves."
         },
         {
-            q: "Can the reverse-engineered valve perform better than the original?",
-            a: "Yes. By utilizing Computational Fluid Dynamics (CFD) modeling, we identify turbulence zones and flow restrictions. We can then optimize internal geometries (such as changing spool shapes or widening channels) and upgrade materials (e.g. from cast iron to duplex stainless steel) to boost performance and lifespan."
+            q: "How are CAD models prepared for miniature physical fabrication?",
+            a: "Full-scale CAD models are too detailed; thin walls would scale down to paper-thin structures that break easily. We simplify the CAD by thickening structural columns, scaling pipe diameters up slightly for strength, and splitting the assembly into interlocking modules."
         },
         {
-            q: "How do you ensure leak-free sealing in the recreated valve?",
-            a: "Our parametric CAD models specify strict geometric dimensioning and tolerancing (GD&T). We recreate mating seal grooves for O-rings, gaskets, and metal-to-metal seating areas under precise surface finish and dimensional tolerances, preventing fluid leaks under operating pressures."
+            q: "What bonding agents are used for acrylic scale models?",
+            a: "We use solvent cements (like acrylic-based methyl ethyl ketone). Unlike standard glue that sits on top of the plastic, solvent cement chemically melts the mating surfaces, fusing the parts into a single structural piece."
         }
     ];
 
     const relatedBlogs = [
         {
-            title: "Dew Point Sensor Moisture Control",
-            slug: "dew-point-sensor",
-            desc: "Exploring trace moisture analysis and calibration in high-pressure gas streams.",
-            image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600"
+            title: "JCB Toy Modelling & CAD Prototyping",
+            slug: "jcb-toy-modelling",
+            desc: "Excavator toy modeling, mechanical linkages, and DFM injection molding parameters.",
+            image: "https://images.unsplash.com/photo-1581091870627-849cc7c1b525?q=80&w=600"
         },
         {
-            title: "Pressure Sensor Engineering Design",
-            slug: "pressure-sensor",
-            desc: "Deep dive into piezoresistive pressure transmitters and diaphragm structures.",
-            image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=600"
+            title: "Toy Modeling Design Services",
+            slug: "toy-modeling",
+            desc: "Bringing imaginative toy concepts to life with realistic 3D modeling and prototyping.",
+            image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=600"
         },
         {
-            title: "Vibration Sensor Plant Monitoring",
-            slug: "vibration-sensor",
-            desc: "Prevent compressor failures by monitoring vibration thresholds in real-time.",
-            image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=600"
+            title: "Sensor Lock Product Design",
+            slug: "sensor-lock",
+            desc: "Design and injection moulding processes for smart security hardware.",
+            image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600"
         }
     ];
 
     return (
         <div className="min-h-screen bg-[#0b0f19] text-slate-100 pt-20 relative overflow-hidden">
             <SEO
-                title="Sensor Valve Reverse Engineering & Optimization - Lasak Technologies"
-                description="Technical analysis of sensor valve reverse engineering, 3D scanning metrology, CFD flow simulation, material upgrades, and GD&T validation."
-                keywords="sensor valve, reverse engineering, 3D scanning, CFD simulation, ASME B31.3, metallurgy, fluid flow control"
-                canonical="/blogs/sensor-valve-design"
+                title="Miniature Model Design & Scale Prototyping - Lasak Technologies"
+                description="Technical analysis of industrial miniature scale modeling, SLA 3D printing tolerances, laser-cut vector layouts, and material scaling physics."
+                keywords="miniature model, scale model, SLA 3D printing, laser cutting, acrylic fabrication, CAD simplification"
+                canonical="/blogs/miniature-model"
             />
 
             {/* Background Glows */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] -z-10 animate-pulse delay-1000"></div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-600/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-[100px] -z-10 animate-pulse delay-1000"></div>
 
             {/* Hero Section */}
             <section className="relative py-20 px-4 md:px-8 border-b border-slate-800 bg-[#0d1425]/50">
@@ -130,28 +130,28 @@ const SensorValvePage = () => {
                         variants={staggerContainer}
                         className="text-center md:text-left space-y-6"
                     >
-                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
-                            <RefreshCw size={16} />
-                            <span className="text-xs font-bold uppercase tracking-widest">Reverse Engineering</span>
+                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400">
+                            <Box size={16} />
+                            <span className="text-xs font-bold uppercase tracking-widest">New Product Development</span>
                         </motion.div>
 
                         <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-                            Sensor Valve <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-500 font-black">Reverse Engineering & Optimization</span>
+                            Miniature Model & <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-amber-400 font-black">Industrial Scale Engineering</span>
                         </motion.h1>
 
                         <motion.div variants={fadeIn} className="flex flex-wrap gap-6 justify-center md:justify-start text-sm text-slate-400 font-light">
                             <span className="flex items-center gap-2">
-                                <User size={14} className="text-indigo-500" />
-                                Brindhaa A
+                                <User size={14} className="text-rose-500" />
+                                Lasak Engineering Team
                             </span>
                             <span className="flex items-center gap-2">
-                                <Tag size={14} className="text-indigo-500" />
+                                <Tag size={14} className="text-rose-500" />
                                 Mechanical Projects
                             </span>
                             <span className="flex items-center gap-2">
-                                <Calendar size={14} className="text-indigo-500" />
-                                September 22, 2025
+                                <Calendar size={14} className="text-rose-500" />
+                                June 23, 2026
                             </span>
                         </motion.div>
 
@@ -160,8 +160,8 @@ const SensorValvePage = () => {
                             className="mt-10 rounded-[2rem] overflow-hidden border border-slate-800 shadow-2xl aspect-[21/9]"
                         >
                             <img
-                                src={sensorValveImg}
-                                alt="Sensor Valve Reverse Engineering Setup"
+                                src={miniatureModelImg}
+                                alt="High-Precision SLA Resin Miniature Scale Model"
                                 className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                             />
                         </motion.div>
@@ -181,17 +181,17 @@ const SensorValvePage = () => {
                                 <ul className="space-y-4">
                                     {highlights.map((h, i) => (
                                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
-                                            <span className="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0"></span>
+                                            <span className="w-2 h-2 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
                                             <span>{h}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
 
-                            <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900 border border-indigo-500/20 rounded-[2rem] p-8 text-center">
-                                <h4 className="font-bold text-white text-lg mb-2">Need Valve Reverse Engineering?</h4>
-                                <p className="text-xs text-slate-400 mb-6">We provide high-precision 3D scanning, material spectrometry, and CFD-based optimization for legacy flow control components.</p>
-                                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-[0_4px_20px_rgba(99,102,241,0.4)] w-full">
+                            <div className="bg-gradient-to-br from-rose-900/40 to-slate-900 border border-rose-500/20 rounded-[2rem] p-8 text-center">
+                                <h4 className="font-bold text-white text-lg mb-2">Need Custom Scale Model Development?</h4>
+                                <p className="text-xs text-slate-400 mb-6">We specialize in converting process plant layouts, mechanical assemblies, and architectural files into physical scale prototypes.</p>
+                                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-[0_4px_20px_rgba(244,63,94,0.4)] w-full">
                                     Contact Project Office <ArrowRight size={16} />
                                 </Link>
                             </div>
@@ -201,10 +201,10 @@ const SensorValvePage = () => {
                         <div className="lg:col-span-8 space-y-16">
                             
                             {/* Introduction */}
-                            <div className="pl-6 border-l-4 border-indigo-500 space-y-4">
+                            <div className="pl-6 border-l-4 border-rose-500 space-y-4">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Introduction</h2>
                                 <p className="text-slate-300 leading-relaxed text-lg font-light">
-                                    In modern industrial process plants, fluid distribution lines, and automotive control loops, sensor valves (such as solenoid-actuated valves, pressure check valves, and proportional flow control valves) are critical components. However, when legacy valves become obsolete, or when manufacturers discontinue replacement parts, operations face significant downtime risks. Recreating these specialized assemblies without original technical data sheets requires an advanced reverse engineering protocol. Deconstructing, analyzing, and optimizing a sensor valve combines optical scanning metrology, mechanical CAD construction, metallurgy testing, and computational fluid simulations.
+                                    Presenting a massive industrial plant, a complex offshore oil platform, or a detailed building development to stakeholders requires clear visualization. While digital 3D renders are useful, a physical scale miniature model provides a tactile perspective that digital screens cannot match. However, fabricating a high-fidelity miniature model requires more than printing shapes. It involves dimensional scale conversions, preparing CAD models for physical printing, utilizing high-precision SLA resin methods, and aligning laser-cut acrylic structures. At Lasak Technologies, our design group specializes in scaling and fabricating high-precision physical models of complex systems.
                                 </p>
                             </div>
 
@@ -212,18 +212,27 @@ const SensorValvePage = () => {
                             <div className="space-y-6 text-slate-300 leading-relaxed font-light">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Detailed Technical Content</h2>
                                 <p>
-                                    The reverse engineering process begins by disassembling the donor valve down to its individual parts, including the housing, spindle, return spring, electromagnetic coil, and internal sealing seats. Each component is thoroughly cleaned to remove deposits, rust, or fluid scale that could compromise measurement accuracy.
+                                    The engineering of a miniature scale model begins by scaling down the master CAD model of the facility. If the scale is 1:100, a pipe with a 100mm diameter scales down to exactly 1.0mm. 
                                 </p>
                                 <p>
-                                    To digitize complex internal pathways and thread details, we employ high-resolution 3D optical and blue-light scanner metrology. This generates a dense point cloud which is converted into a polygonal mesh. Our design engineers import this mesh into parametric CAD suites (such as SolidWorks or PTC Creo) to reconstruct the valve geometries. We define exact dimensions using Geometric Dimensioning and Tolerancing (GD&T) to verify mating fits and O-ring compression ratios.
+                                    At this size, wall thicknesses of structural steel members, handrails, and piping manifolds become paper-thin. If directly fabricated, the components would warp or break during handling. 
                                 </p>
-                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Computational Fluid Dynamics (CFD) Flow Profile Optimization</h3>
                                 <p>
-                                    Simply copying dimensions is often insufficient; legacy valves frequently present design weaknesses like cavitation wear and high pressure drops. Our engineers construct a CFD simulation model, applying fluid boundary parameters matching the system's target profile (flow rate, viscosity, and peak pressure). The simulation maps velocity vectors and turbulent kinetic energy. If cavitation zones (low-pressure pockets where micro-bubbles form and implode, eroding the metal) are identified, we optimize the internal geometries—for instance, adjusting the chamfer angles of the valve spool or widening the bypass ports.
+                                    To solve this, our engineers review the CAD design, systematically thickening structural members and widening small clearances to ensure strength while maintaining the visual appearance of the original equipment.
                                 </p>
-                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Metallurgy and Material Spectroscopy Upgrades</h3>
+                                <h3 className="text-xl font-bold text-white mt-6 mb-2">High-Precision SLA and FDM 3D Printing</h3>
                                 <p>
-                                    To ensure the recreated valve withstands high stresses and corrosive environments, we analyze the metal composition using Optical Emission Spectrometry (OES). Identifying the base alloy allows us to recommend material upgrades. For example, replacing a standard brass or cast carbon steel housing with a Super Duplex Stainless Steel or Hastelloy element significantly extends wear resistance and component life.
+                                    For high-detail parts (valves, pumps, engines, instruments), we utilize Stereolithography (SLA) 3D printing. SLA printers cure liquid photopolymer resin layer-by-layer using a UV laser, achieving layer thicknesses of 25 to 50 microns. This ensures exceptionally smooth surface finishes. 
+                                </p>
+                                <p>
+                                    For large structural bases and buildings, we use Fused Deposition Modeling (FDM) with PLA filament. This provides cost-effective, rigid foundations for the model.
+                                </p>
+                                <h3 className="text-xl font-bold text-white mt-6 mb-2">Laser Cutting and Acrylic Assembly</h3>
+                                <p>
+                                    Structural frames, grid lines, and access walkways are created by laser-cutting acrylic and MDF sheets. Using vector-based graphics files, the laser cuts parts with tolerances of 0.05mm. 
+                                </p>
+                                <p>
+                                    To assemble these components, we use solvent cements that chemically melt and fuse acrylic faces together, forming strong joints. The model is finished with fine sandpapers, plastic primers, and electrostatic airbrushes to apply accurate color schemes.
                                 </p>
                             </div>
 
@@ -247,13 +256,13 @@ const SensorValvePage = () => {
                             <div className="space-y-6">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Industrial Applications</h2>
                                 <p className="text-slate-300 leading-relaxed font-light">
-                                    Optimized sensor valves are critical across numerous process control industries:
+                                    Miniature model engineering is widely used across various commercial sectors:
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     {[
-                                        { title: "Oil & Gas Refineries", desc: "Rebuilding obsolete safety bypass valves and pilot control manifolds exposed to sour hydrocarbons." },
-                                        { title: "Chemical Dosing Units", desc: "Recreating precision chemical metering valves using non-corrosive PEEK and Hastelloy materials." },
-                                        { title: "Automotive Transmission Control", desc: "Optimizing solenoid flow valves to manage hydraulic transmission fluid flows cleanly under high temperatures." }
+                                        { title: "Exhibition Models", desc: "Eye-catching models designed for manufacturing and engineering companies to showcase machinery at trade shows." },
+                                        { title: "Process Flow Verification", desc: "Physical models used by piping and mechanical engineers to walk through plant operations and review layouts." },
+                                        { title: "Architectural Planning", desc: "Detailed building models showing spatial layouts to municipal authorities and real estate investors." }
                                     ].map((app, i) => (
                                         <div key={i} className="bg-[#101726] border border-slate-800 p-6 rounded-2xl">
                                             <h5 className="font-bold text-white text-base mb-2 uppercase tracking-tight">{app.title}</h5>
@@ -268,13 +277,13 @@ const SensorValvePage = () => {
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Key Benefits</h2>
                                 <div className="space-y-4">
                                     {[
-                                        { title: "Extended Operational Lifespan", desc: "Upgraded metallurgical compositions and optimized flow geometries reduce cavitation wear, extending life by up to 30%." },
-                                        { title: "Mitigate Obsolete Spares Risks", desc: "Provides a reliable channel to recreate components that are no longer supported or supplied by the OEM." },
-                                        { title: "Lower Operating Pressure Drop", desc: "CFD flow path adjustments reduce internal flow restriction, improving overall pumping and plant energy efficiency." },
-                                        { title: "Complete Parametric CAD Assets", desc: "Delivers complete 2D manufacturing prints and 3D step files for on-demand future fabrication cycles." }
+                                        { title: "High Visual Impact", desc: "Physical models engage clients and investors, helping them visualize project layouts quickly." },
+                                        { title: "Clear Spatial Insights", desc: "Allows mechanical engineers to verify clearance heights, structural layouts, and maintenance spaces." },
+                                        { title: "Interlocking Modular Design", desc: "Splitting models into sub-assemblies simplifies shipping and allows fast on-site re-assembly." },
+                                        { title: "Durable, Light Construction", desc: "Combining acrylic plates, SLA resins, and internal ribs yields highly durable, lightweight models." }
                                     ].map((b, i) => (
                                         <div key={i} className="flex gap-4 bg-slate-900/30 p-6 rounded-2xl border border-slate-800/50">
-                                            <span className="text-indigo-500 font-bold text-lg">0{i+1}.</span>
+                                            <span className="text-rose-500 font-bold text-lg">0{i+1}.</span>
                                             <div>
                                                 <h5 className="font-bold text-white text-base mb-1">{b.title}</h5>
                                                 <p className="text-sm text-slate-400 font-light leading-relaxed">{b.desc}</p>
@@ -288,7 +297,7 @@ const SensorValvePage = () => {
                             <div className="space-y-4 text-slate-300 leading-relaxed font-light">
                                 <h2 className="text-2xl font-black text-white uppercase tracking-tight">Conclusion</h2>
                                 <p>
-                                    Sensor valve reverse engineering is more than replicating dimensions—it is an opportunity to analyze and fix design failures. Applying blue-light 3D scanning, chemical spectrometry, and computational fluid dynamics (CFD) optimization delivers replacement parts that regularly outperform the original components. Lasak Technologies continues to lead the design and reconstruction of critical fluid control systems across the process automation sectors.
+                                    Physical scale models are a valuable tool for industrial and structural visualization. Preparing CAD models, using SLA printing for details, and assembling laser-cut acrylic parts yields highly accurate scale models. Lasak Technologies remains a leading partner, converting digital CAD files into high-quality physical scale models.
                                 </p>
                             </div>
 
@@ -303,7 +312,7 @@ const SensorValvePage = () => {
                                                 className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-900/50 transition-colors"
                                             >
                                                 <span className="font-bold text-white text-base flex items-center gap-3">
-                                                    <HelpCircle size={18} className="text-indigo-500 flex-shrink-0" />
+                                                    <HelpCircle size={18} className="text-rose-500 flex-shrink-0" />
                                                     {faq.q}
                                                 </span>
                                                 <ChevronDown
@@ -338,7 +347,7 @@ const SensorValvePage = () => {
                                         <Link
                                             to={`/blogs/${blog.slug}`}
                                             key={i}
-                                            className="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-indigo-500/50 transition-all flex flex-col"
+                                            className="group bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-rose-500/50 transition-all flex flex-col"
                                         >
                                             <div className="h-40 overflow-hidden relative">
                                                 <img
@@ -349,14 +358,14 @@ const SensorValvePage = () => {
                                             </div>
                                             <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
                                                 <div>
-                                                    <h4 className="font-bold text-white group-hover:text-indigo-400 transition-colors text-sm uppercase tracking-tight leading-snug line-clamp-2">
+                                                    <h4 className="font-bold text-white group-hover:text-rose-400 transition-colors text-sm uppercase tracking-tight leading-snug line-clamp-2">
                                                         {blog.title}
                                                     </h4>
                                                     <p className="text-xs text-slate-500 leading-relaxed line-clamp-3 mt-2 font-light">
                                                         {blog.desc}
                                                     </p>
                                                 </div>
-                                                <span className="text-indigo-500 font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                <span className="text-rose-500 font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all">
                                                     Read Article <ArrowRight size={12} />
                                                 </span>
                                             </div>
@@ -375,4 +384,4 @@ const SensorValvePage = () => {
     );
 };
 
-export default SensorValvePage;
+export default MiniatureModelPage;

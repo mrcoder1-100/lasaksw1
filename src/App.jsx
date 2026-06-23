@@ -42,6 +42,22 @@ const WheelchairDesignPage = lazy(() => import('./pages/WheelchairDesignPage'))
 const ClosensePage = lazy(() => import('./pages/ClosensePage'))
 const FinanceAdvisoryPage = lazy(() => import('./pages/FinanceAdvisoryPage'))
 
+// New Hardcoded High-Quality Blog Imports (Lazy loaded)
+const CngPlantDesignPage = lazy(() => import('./pages/CngPlantDesignPage'))
+const DewPointSensorPage = lazy(() => import('./pages/DewPointSensorPage'))
+const VibrationSensorPage = lazy(() => import('./pages/VibrationSensorPage'))
+const PressureSensorPage = lazy(() => import('./pages/PressureSensorPage'))
+const HumiditySensorPage = lazy(() => import('./pages/HumiditySensorPage'))
+const DynamicReducerPage = lazy(() => import('./pages/DynamicReducerPage'))
+const DynamicFlowMeterPage = lazy(() => import('./pages/DynamicFlowMeterPage'))
+const JcbToyModellingPage = lazy(() => import('./pages/JcbToyModellingPage'))
+const MetalFrameCagePage = lazy(() => import('./pages/MetalFrameCagePage'))
+const SensorLockPage = lazy(() => import('./pages/SensorLockPage'))
+const MiniatureModelPage = lazy(() => import('./pages/MiniatureModelPage'))
+const BioFilmAnalyzerPage = lazy(() => import('./pages/BioFilmAnalyzerPage'))
+const MethanogenCultureJarPage = lazy(() => import('./pages/MethanogenCultureJarPage'))
+const SolarPanelUmbrellaPage = lazy(() => import('./pages/SolarPanelUmbrellaPage'))
+
 const CareerApplyPage = lazy(() => import('./pages/CareerApplyPage'))
 const ExtraPaymentPage = lazy(() => import('./pages/ExtraPaymentPage'))
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'))
@@ -125,6 +141,22 @@ function App() {
                         <Route path="/blogs/wheelchair-design" element={<WheelchairDesignPage />} />
                         <Route path="/blogs/closense-ecommerce" element={<ClosensePage />} />
                         <Route path="/blogs/finance-advisory" element={<FinanceAdvisoryPage />} />
+
+                        {/* New Hardcoded Blog Routes */}
+                        <Route path="/blogs/cng-plant-design" element={<CngPlantDesignPage />} />
+                        <Route path="/blogs/dew-point-sensor" element={<DewPointSensorPage />} />
+                        <Route path="/blogs/vibration-sensor" element={<VibrationSensorPage />} />
+                        <Route path="/blogs/pressure-sensor" element={<PressureSensorPage />} />
+                        <Route path="/blogs/humidity-sensor" element={<HumiditySensorPage />} />
+                        <Route path="/blogs/dynamic-reducer" element={<DynamicReducerPage />} />
+                        <Route path="/blogs/dynamic-flow-meter" element={<DynamicFlowMeterPage />} />
+                        <Route path="/blogs/jcb-toy-modelling" element={<JcbToyModellingPage />} />
+                        <Route path="/blogs/metal-frame-cage" element={<MetalFrameCagePage />} />
+                        <Route path="/blogs/sensor-lock" element={<SensorLockPage />} />
+                        <Route path="/blogs/miniature-model" element={<MiniatureModelPage />} />
+                        <Route path="/blogs/bio-film-analyzer" element={<BioFilmAnalyzerPage />} />
+                        <Route path="/blogs/methanogen-culture-jar" element={<MethanogenCultureJarPage />} />
+                        <Route path="/blogs/solar-panel-umbrella" element={<SolarPanelUmbrellaPage />} />
 
                         {/* Dynamic fallback for new blogs */}
                         <Route path="/blogs/:slug" element={<BlogTemplate />} />
