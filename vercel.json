@@ -1,0 +1,47 @@
+{
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Content-Security-Policy",
+                    "value": "default-src 'self'; script-src 'self' https://checkout.razorpay.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://checkout.razorpay.com; img-src 'self' data: https://images.unsplash.com https://lasak.in https://*.googleusercontent.com https://*.firebasestorage.googleapis.com https://cdn-icons-png.flaticon.com https://grainy-gradients.vercel.app; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.firebasestorage.googleapis.com https://api.razorpay.com https://n8n.srv1443461.hstgr.cloud; frame-src 'self' https://api.razorpay.com; media-src 'self' https://lasak.in https://assets.mixkit.co;"
+                },
+                {
+                    "key": "X-Frame-Options",
+                    "value": "SAMEORIGIN"
+                },
+                {
+                    "key": "X-Content-Type-Options",
+                    "value": "nosniff"
+                },
+                {
+                    "key": "X-XSS-Protection",
+                    "value": "1; mode=block"
+                },
+                {
+                    "key": "Referrer-Policy",
+                    "value": "no-referrer"
+                },
+                {
+                    "key": "X-Powered-By",
+                    "value": ""
+                },
+                {
+                    "key": "X-AspNet-Version",
+                    "value": ""
+                },
+                {
+                    "key": "X-Redirect-By",
+                    "value": ""
+                }
+            ]
+        }
+    ]
+}

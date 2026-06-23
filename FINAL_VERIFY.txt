@@ -1,0 +1,20 @@
+FINAL VERIFICATION
+
+PRODUCTS: 3
+ - AUU6qzmR5lSaD9MxJd61: LASAK CRM
+ - IxknObJ4c2XNlooO9HJr: LASAK APPETITE
+ - xBV07ZDhG1r2gLFHlnV1: PROCESS AUTOMATION
+
+SERVICES: 10
+ - 1927001d-1566-4ba8-9a95-a9744b1d461c: Web Development
+ - 202741ac-dd24-4a31-882f-173b11ec24da: Business Automation
+ - 20954f37-311d-4fe1-99af-95e9e6bbedc9: Retro Fitting
+ - 4b883d40-7276-41ef-82ce-df529fb53437: Digital Marketing 
+ - 5ae2cd91-6a23-442f-8cdd-24beea4dd6e3: 3D MODELING
+ - 6931ad05-67f9-4360-be73-62ee32ef6832: UI/UX Design
+ - 7973ad49-b3a7-483e-b87e-e5b2452819c1: New Product Development
+
+
+ - 8f4795d1-1c2c-445f-9f26-6208e0ae0e6b: Patent Drawing
+ - 9081c676-96c8-4ad6-823f-bd37957aa8eb: Reverse Engineering
+ - d5f585c2-cfa9-4dd0-8203-996449fd7ce2: Analysis

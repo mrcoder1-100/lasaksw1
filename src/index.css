@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply antialiased bg-[#0f172a] text-slate-100;
+    }
+}
+
+/* Infinite Scroll Logo Animation */
+.logo-slider {
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.logo-row {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.logo-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.logo-track-reverse {
+    display: flex;
+    width: max-content;
+    animation: scroll-reverse 40s linear infinite;
+}
+
+.client-logo {
+    width: 100px;
+    height: 70px;
+    object-fit: contain;
+    margin: 0 15px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .client-logo {
+        width: 150px;
+        height: 100px;
+        margin: 0 30px;
+        padding: 10px;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Floating Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-40px) scale(1.05);
+    }
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce-slow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+    animation: float-slow 15s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 4s ease-in-out infinite;
+}
+
+/* Utilities */
+.text-outline-blue {
+    -webkit-text-stroke: 1px rgba(59, 130, 246, 0.5);
+}

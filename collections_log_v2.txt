@@ -1,0 +1,10 @@
+file:///D:/Lasak/Lasak_tech%20WITH%20EDITABLE%20-%20final%202/list_collections.js:3
+import { getFirestore, collection, getDocs, listCollections } from 'firebase/firestore';
+                                            ^^^^^^^^^^^^^^^
+SyntaxError: The requested module 'firebase/firestore' does not provide an export named 'listCollections'
+    at ModuleJob._instantiate (node:internal/modules/esm/module_job:228:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:337:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:651:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.19.0

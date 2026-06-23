@@ -1,0 +1,3 @@
+Verification Output:
+Found 1 contact cards:
+- ID: id_0, Title: Headquarters
