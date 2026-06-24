@@ -60,13 +60,16 @@ const FALLBACK_BLOGS = [
     { title: "Tesla Valve Fluid Optimization", slug: "tesla-valve", image_url: teslaValveImg, category: "Fluid Dynamics", created_at: "2025-09-22T00:00:00.000Z" },
     { title: "Role in Designing a Jacquard Machine", slug: "jacquard-machine", image_url: jacquardMachineImg, category: "Textile Machinery", created_at: "2025-09-22T00:00:00.000Z" },
     { title: "Role in Designing an Eccentric Gear Mechanism", slug: "eccentric-gear", image_url: eccentricGearImg, category: "Mechanical", created_at: "2025-09-22T00:00:00.000Z" },
-    { title: "Building the Future of Online Shopping: E-Commerce Website", slug: "ecommerce-development", image_url: ecommerceDevelopmentImg, category: "E-Commerce", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Niram - E-Commerce Website Development", slug: "ecommerce-development", image_url: ecommerceDevelopmentImg, category: "E-Commerce", created_at: "2025-09-22T00:00:00.000Z" },
     { title: "Solar Dryer Agriculture Innovation", slug: "solar-dryer", image_url: solarDryerImg, category: "Sustainability", created_at: "2025-09-22T00:00:00.000Z" },
     { title: "Water Bottle Design: A Blend of Innovation and Precision", slug: "water-bottle-design", image_url: waterBottleImg, category: "Product Design", created_at: "2025-09-22T00:00:00.000Z" },
-    { title: "Real Estate Website", slug: "real-estate", image_url: realEstateImg, category: "Web Development", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Real Estate Website Development", slug: "real-estate", image_url: realEstateImg, category: "Web Development", created_at: "2025-09-21T00:00:00.000Z" },
     { title: "Designing a Specialised Wheelchair(Patent Registration)", slug: "wheelchair-design", image_url: wheelchairDesignImg, category: "Patent Design", created_at: "2025-09-22T00:00:00.000Z" },
-    { title: "Delivering Excellence in Finance and Business Advisory Website Development", slug: "finance-advisory", image_url: financeAdvisoryImg, category: "Web Development", created_at: "2025-09-22T00:00:00.000Z" },
-    { title: "Building the Future of Online Shopping: Our E-Commerce Development Story", slug: "closense-ecommerce", image_url: ecommerceDevelopmentImg2, category: "E-Commerce", created_at: "2025-09-22T00:00:00.000Z" },
+    { title: "Raj & Co - Finance and Business Advisory Website Development", slug: "finance-advisory", image_url: financeAdvisoryImg, category: "Web Development", created_at: "2025-09-20T00:00:00.000Z" },
+    { title: "Closense - Our E-Commerce Development Story", slug: "closense-ecommerce", image_url: ecommerceDevelopmentImg2, category: "E-Commerce", created_at: "2025-09-19T00:00:00.000Z" },
+    { title: "Skyline - Real Estate Landing Page", slug: "skyline-landing-page", image_url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600", category: "Web Development", created_at: "2026-06-24T00:00:00.000Z" },
+    { title: "Lasak Edu Landing Page", slug: "lasak-edu-landing-page", image_url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600", category: "Web Development", created_at: "2026-06-24T00:00:00.000Z" },
+    { title: "Attendance Tracking System - Dynamic Employee Management", slug: "attendance-tracking", image_url: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600", category: "Web Development", created_at: "2026-06-24T00:00:00.000Z" },
 
     // 14 New Mechanical Blogs
     { title: "CNG Plant Design and Development", slug: "cng-plant-design", image_url: cngPlantImg, category: "Mechanical Projects", created_at: "2026-06-23T00:00:00.000Z" },
@@ -123,6 +126,24 @@ const BLOG_SUBCATEGORIES = {
     ],
     '3d-modeling': [
         'miniature-model'
+    ],
+    'site-planning': [
+        'architectural-design'
+    ],
+    'cite-planning': [
+        'architectural-design'
+    ],
+    'interior-exterior-architecture': [],
+    'static': [
+        'finance-advisory',
+        'skyline-landing-page',
+        'lasak-edu-landing-page'
+    ],
+    'dynamic': [
+        'ecommerce-development',
+        'real-estate',
+        'attendance-tracking',
+        'closense-ecommerce'
     ]
 };
 
@@ -131,7 +152,12 @@ const SUBCATEGORY_NAMES = {
     'retro-fitting': 'RETRO FITTING',
     'patent-drawing': 'PATENT DRAWING',
     'new-product-development': 'NEW PRODUCT DEVELOPMENT',
-    '3d-modeling': '3D MODELING'
+    '3d-modeling': '3D MODELING',
+    'site-planning': 'SITE PLANNING',
+    'cite-planning': 'CITE PLANNING',
+    'interior-exterior-architecture': 'INTERIOR & EXTERIOR ARCHITECTURE',
+    'static': 'STATIC',
+    'dynamic': 'DYNAMIC'
 };
 
 const BlogsPage = () => {
@@ -341,18 +367,45 @@ const BlogsPage = () => {
                                         >
                                             <h3 className="text-2xl md:text-5xl font-black text-white uppercase tracking-[0.15em] mb-4">
                                                 CIVIL <span className="text-emerald-500">SERVICES</span>
+                                                {subcategoryParam && SUBCATEGORY_NAMES[subcategoryParam] && (
+                                                    <>
+                                                        <span className="text-white/40"> / </span>
+                                                        <span className="text-emerald-400">{SUBCATEGORY_NAMES[subcategoryParam]}</span>
+                                                    </>
+                                                )}
                                             </h3>
                                             <div className="w-24 h-1.5 bg-emerald-600 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
                                         </motion.div>
 
                                         <div className="flex flex-col space-y-12">
-                                            {blogs
-                                                .filter(blog => {
+                                            {(() => {
+                                                const filteredBlogs = blogs.filter(blog => {
                                                     const title = (blog.title || "").toLowerCase();
                                                     const civilTitles = ['architectural'];
-                                                    return civilTitles.some(cv => title.includes(cv));
-                                                })
-                                                .map((blog, index) => (
+                                                    const isCivil = civilTitles.some(cv => title.includes(cv));
+                                                    if (!isCivil) return false;
+
+                                                    if (subcategoryParam) {
+                                                        const allowedSlugs = BLOG_SUBCATEGORIES[subcategoryParam] || [];
+                                                        return allowedSlugs.includes(blog.slug || blog.title || blog.id);
+                                                    }
+                                                    return true;
+                                                });
+
+                                                if (filteredBlogs.length === 0) {
+                                                    return (
+                                                        <div className="text-center py-24 bg-white/5 border border-white/10 rounded-[3rem] p-8">
+                                                            <h4 className="text-2xl md:text-3xl font-black text-slate-400 uppercase tracking-wider">
+                                                                Coming Soon...
+                                                            </h4>
+                                                            <p className="text-slate-500 mt-4 font-light">
+                                                                We are curating high-quality content for this section. Stay tuned!
+                                                            </p>
+                                                        </div>
+                                                    );
+                                                }
+
+                                                return filteredBlogs.map((blog, index) => (
                                                     <motion.div
                                                         key={`civil-${index}`}
                                                         initial={{ opacity: 0, y: 30 }}
@@ -393,7 +446,8 @@ const BlogsPage = () => {
                                                             </div>
                                                         </Wrapper>
                                                     </motion.div>
-                                                ))}
+                                                ));
+                                            })()}
                                         </div>
                                     </div>
                                     )}
@@ -409,24 +463,57 @@ const BlogsPage = () => {
                                         >
                                             <h3 className="text-2xl md:text-5xl font-black text-white uppercase tracking-[0.15em] mb-4">
                                                 IT <span className="text-purple-500">SERVICES</span>
+                                                {subcategoryParam && SUBCATEGORY_NAMES[subcategoryParam] && (
+                                                    <>
+                                                        <span className="text-white/40"> / </span>
+                                                        <span className="text-purple-400">{SUBCATEGORY_NAMES[subcategoryParam]}</span>
+                                                    </>
+                                                )}
                                             </h3>
                                             <div className="w-24 h-1.5 bg-purple-600 rounded-full shadow-[0_0_15px_rgba(168,85,247,0.5)]"></div>
                                         </motion.div>
 
                                         <div className="flex flex-col space-y-12">
-                                            {blogs
-                                                .filter(blog => {
+                                            {(() => {
+                                                const filteredBlogs = blogs.filter(blog => {
                                                     const title = (blog.title || "").toLowerCase();
                                                     const itTitles = [
                                                         'finance and business advisory',
                                                         'e-commerce website',
                                                         'real estate website',
-                                                        'online shopping'
+                                                        'online shopping',
+                                                        'raj & co',
+                                                        'skyline',
+                                                        'lasak edu',
+                                                        'niram',
+                                                        'attendance tracking',
+                                                        'closense'
                                                     ];
                                                     // Only include the specified IT titles
-                                                    return itTitles.some(it => title.includes(it));
-                                                })
-                                                .map((blog, index) => (
+                                                    const isIT = itTitles.some(it => title.includes(it));
+                                                    if (!isIT) return false;
+
+                                                    if (subcategoryParam) {
+                                                        const allowedSlugs = BLOG_SUBCATEGORIES[subcategoryParam] || [];
+                                                        return allowedSlugs.includes(blog.slug || blog.title || blog.id);
+                                                    }
+                                                    return true;
+                                                });
+
+                                                if (filteredBlogs.length === 0) {
+                                                    return (
+                                                        <div className="text-center py-24 bg-white/5 border border-white/10 rounded-[3rem] p-8">
+                                                            <h4 className="text-2xl md:text-3xl font-black text-slate-400 uppercase tracking-wider">
+                                                                Coming Soon...
+                                                            </h4>
+                                                            <p className="text-slate-500 mt-4 font-light">
+                                                                We are curating high-quality content for this section. Stay tuned!
+                                                            </p>
+                                                        </div>
+                                                    );
+                                                }
+
+                                                return filteredBlogs.map((blog, index) => (
                                                     <motion.div
                                                         key={`it-${index}`}
                                                         initial={{ opacity: 0, y: 30 }}
@@ -467,7 +554,8 @@ const BlogsPage = () => {
                                                             </div>
                                                         </Wrapper>
                                                     </motion.div>
-                                                ))}
+                                                ));
+                                            })()}
                                         </div>
                                     </div>
                                     )}

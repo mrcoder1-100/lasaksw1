@@ -227,8 +227,22 @@ const Navbar = () => {
                         { name: "3D Modeling", href: getLink("/blogs?category=mechanical&subcategory=3d-modeling") }
                     ]
                 },
-                { name: "Civil Blogs", href: getLink("/blogs?category=civil") },
-                { name: "IT Blogs", href: getLink("/blogs?category=it") }
+                {
+                    name: "Civil Blogs",
+                    href: getLink("/blogs?category=civil"),
+                    subItems: [
+                        { name: "Site Planning", href: getLink("/blogs?category=civil&subcategory=site-planning") },
+                        { name: "Interior and Exterior Architecture", href: getLink("/blogs?category=civil&subcategory=interior-exterior-architecture") }
+                    ]
+                },
+                {
+                    name: "IT Blogs",
+                    href: getLink("/blogs?category=it"),
+                    subItems: [
+                        { name: "Static", href: getLink("/blogs?category=it&subcategory=static") },
+                        { name: "Dynamic", href: getLink("/blogs?category=it&subcategory=dynamic") }
+                    ]
+                }
             ]
         },
         { name: 'Payment', href: getLink('/payment') },

@@ -41,6 +41,9 @@ const RealEstatePage = lazy(() => import('./pages/RealEstatePage'))
 const WheelchairDesignPage = lazy(() => import('./pages/WheelchairDesignPage'))
 const ClosensePage = lazy(() => import('./pages/ClosensePage'))
 const FinanceAdvisoryPage = lazy(() => import('./pages/FinanceAdvisoryPage'))
+const SkylinePage = lazy(() => import('./pages/SkylinePage'))
+const LasakEduPage = lazy(() => import('./pages/LasakEduPage'))
+const AttendanceTrackingPage = lazy(() => import('./pages/AttendanceTrackingPage'))
 
 // New Hardcoded High-Quality Blog Imports (Lazy loaded)
 const CngPlantDesignPage = lazy(() => import('./pages/CngPlantDesignPage'))
@@ -141,6 +144,9 @@ function App() {
                         <Route path="/blogs/wheelchair-design" element={<WheelchairDesignPage />} />
                         <Route path="/blogs/closense-ecommerce" element={<ClosensePage />} />
                         <Route path="/blogs/finance-advisory" element={<FinanceAdvisoryPage />} />
+                        <Route path="/blogs/skyline-landing-page" element={<SkylinePage />} />
+                        <Route path="/blogs/lasak-edu-landing-page" element={<LasakEduPage />} />
+                        <Route path="/blogs/attendance-tracking" element={<AttendanceTrackingPage />} />
 
                         {/* New Hardcoded Blog Routes */}
                         <Route path="/blogs/cng-plant-design" element={<CngPlantDesignPage />} />
